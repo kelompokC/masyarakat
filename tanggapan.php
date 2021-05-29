@@ -24,15 +24,9 @@
 
 <div class="card shadow">
   <div class="card-header">
-    Detail Pengaduan
+    Tanggapan
   </div>
-        <?php
-      include '../koneksi.php';
-      $sql=$mysqli -> query ("select * from pengaduan where id_pengaduan='$_GET[id]'");
-      $data=mysqli_fetch_array($sql);
-      if ($sql) 
-      {
-      ?> 
+      
 
   <div class="card-body">
   <div class="form-group cols-sm-6">
@@ -44,33 +38,32 @@
   </a>
 
     
-</div>
-  
-    <form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
 
+    <form action="simpan_tanggapan.php" method="post" class="form-horizontal" enctype="multipart/form-data">
 
       <div class="form-group cols-sm-6">
-        <label>Tanggal Pengaduan</label>
-        <input type="text" name="tgl_pengaduan" value="<?php echo $data['tgl_pengaduan']; ?>" class="form-control" readonly>
+        <label>ID Pengaduan</label>
+        <input type="text" name="id_Pengaduan" value="<?php echo $_GET['id']; ?>" class="form-control" readonly>
       </div>
 
       <div class="form-group cols-sm-6">
-        <label>Tulis Laporan</label>
-        <textarea class="form-control" rows="7" name="isi_laporan" readonly="">
-          <?php echo $data['isi_laporan']; ?>
+        <label>Tanggal Tanggapan</label>
+        <input type="text" name="tgl_tanggapan" value="<?php echo date('Y-m-d'); ?>" class="form-control" readonly>
+      </div>
 
+      <div class="form-group cols-sm-6">
+        <label>Tulis Tanggapan</label>
+        <textarea class="form-control" rows="7" name="tanggapan" >
+      
         </textarea>
       </div>
       <div class="form-group cols-sm-6">
-        <label>Bukti Foto</label>
-        <div>
-        <img src="../foto/<?php echo $data['foto']; ?>" width=600>
-      </div>
+        <label>ID Petugas</label>
+        <input type="text" name="id_petugas" value="<?php echo $_SESSION['id_petugas']; ?>" class="form-control" readonly="">
       </div>
 
+      <input type="submit" class="btn btn-primary btn-user" value="Tanggapi">
 
-
-    <?php } ?>
 
     </form>
   </div>

@@ -24,54 +24,37 @@
 
 <div class="card shadow">
   <div class="card-header">
-    Detail Pengaduan
+    Tambah Masyarakat
   </div>
-        <?php
-      include '../koneksi.php';
-      $sql=$mysqli -> query ("select * from pengaduan where id_pengaduan='$_GET[id]'");
-      $data=mysqli_fetch_array($sql);
-      if ($sql) 
-      {
-      ?> 
-
   <div class="card-body">
-  <div class="form-group cols-sm-6">
-  <a href="?url=verifikasi_pengaduan" class="btn btn-primary btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-arrow-left"></i>
-    </span>
-    <span class="text">Kembali</span>
-  </a>
-
-    
-</div>
-  
-    <form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
-
-
+    <form action="simpan_masyarakat.php" method="post" class="form-horizontal" enctype="multipart/form-data">
       <div class="form-group cols-sm-6">
-        <label>Tanggal Pengaduan</label>
-        <input type="text" name="tgl_pengaduan" value="<?php echo $data['tgl_pengaduan']; ?>" class="form-control" readonly>
-      </div>
-
-      <div class="form-group cols-sm-6">
-        <label>Tulis Laporan</label>
-        <textarea class="form-control" rows="7" name="isi_laporan" readonly="">
-          <?php echo $data['isi_laporan']; ?>
-
-        </textarea>
+        <label>NIK</label>
+        <input type="text" name="nik" value="" class="form-control" >
       </div>
       <div class="form-group cols-sm-6">
-        <label>Bukti Foto</label>
-        <div>
-        <img src="../foto/<?php echo $data['foto']; ?>" width=600>
+        <label>nama</label>
+        <input type="text" name="nama" value="" class="form-control" >
       </div>
+      <div class="form-group cols-sm-6">
+        <label>username</label>
+        <input type="text" name="username" value="" class="form-control" >
       </div>
+      <div class="form-group cols-sm-6">
+        <label>password</label>
+        <input type="text" name="password" value="" class="form-control" >
+      </div>
+       <div class="form-group cols-sm-6">
+        <label>telp</label>
+        <input type="text" name="telp" value="" class="form-control" >
+      </div>
+      
 
 
-
-    <?php } ?>
-
+      <div class="form-group col-sm-6">
+        <input type="submit" value="Simpan" class="btn btn-primary">
+        <input type="reset" value="Kosongkan" class="btn btn-warning">
+      </div>
     </form>
   </div>
 </div>

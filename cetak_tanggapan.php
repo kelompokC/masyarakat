@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>Pengaduan Masyarakat</title>
 
   <!-- Custom fonts for this template -->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,23 +33,28 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-secondary">Data Tanggapan</h6>
             </div>
             <div class="card-body">
 
+                <h3 class="m-0 font-weight-bold text-secondary" align="center">PEMERINTAH KABUPATEN ACEH TAMIANG</h3>
+                <h4 class="m-0 font-weight-bold text-secondary" align="center">DESA KOTA LINTANG KEC.KABUPATEN</h4>
+                <h6 class="m-0 font-weight-bold text-secondary" align="center">Jalan Kotalintang Atas Desa Kota Lintang Kode Pos 44444 </h6>
+                  <br><br><hr>
+                <h4 class="m-0 font-weight-bold text-secondary" align="center">Laporan Tanggapan </h4>
+                <br><br>
 
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
+                  
                     <tr>
                       <th>ID Tanggapan</th>
                       <th>ID Pengaduan</th>
-                      <th>Tanggal Tanggapan</th>
+                      <th>Tanggal Pengaduan</th>
                       <th>Tanggapan</th>
                       <th>ID Petugas</th>
-                      <th>Aksi</th>
+                                            
                     </tr>
-                  </thead>
+                  
                   <?php
                   include '../koneksi.php';
                   $sql= $mysqli -> query("Select * from tanggapan");
@@ -59,23 +68,28 @@
                       <td><?php echo $data['tgl_tanggapan']; ?></td>
                       <td><?php echo $data['tanggapan']; ?></td>
                       <td><?php echo $data['id_petugas']; ?></td>
-                      <td>
-                        <!--button-->
-                      <a href="hapus_tanggapan.php?id=<?php echo $data['id_tanggapan']; ?>" class="btn btn-danger btn-circle" onclick="return confirm('Yakin Mau Dihapus?')">
-                        <i class="fa fa-trash"></i>
-                      </a>
+                      
+                        
+
 
                         
 
 
 
-                      </td>
+                      
                     </tr>
                     
                   </tbody>
                   <?php } ?>
                 </table>
+
               </div>
+                <br>
+                <br>
+                <h6 class="m-0 font-weight-bold text-primary" align="right">Kota Lintang, <?php echo date('d M Y'); ?></h6>
+                <h6 class="m-0 font-weight-bold text-primary" align="right">Petugas</h6>
+                <br><br><br><br>
+                <h6 class="m-0 font-weight-bold text-primary" align="right"><?php echo $_SESSION['nama']; ?></h6>
             </div>
           </div>
 
@@ -86,13 +100,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
+
       <!-- End of Footer -->
 
     </div>
@@ -124,6 +132,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="../vendor/jquery/jquery.min.js"></script>
