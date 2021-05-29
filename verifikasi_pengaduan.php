@@ -47,7 +47,7 @@
                   </thead>
                   <?php
                   include '../koneksi.php';
-                  $sql= $mysqli -> query("select * from pengaduan where status='proses'");
+                  $sql= $mysqli -> query("select * from pengaduan where status='0'");
                   while ($data=mysqli_fetch_array($sql)) {
                     
                   ?>
@@ -60,21 +60,15 @@
                       <td><?php echo $data['foto']; ?></td>
                       <td><?php echo $data['status']; ?></td>
                       <td>
-                        <!--button-->
+                        <!--button--> 
                         <a href="?url=detail_pengaduan&id=<?php echo $data['id_Pengaduan']; ?>" class="btn btn-info btn-icon-split">
-                          <span class="icon text-white-50">
-                          <i class="fas fa-info"></i>
-                          </span>
-                          <span class="text">Detail</span>
-                        </a>
-                        <a href="?url=tanggapan&id=<?php echo $data['id_Pengaduan']; ?>" class="btn btn-danger btn-icon-split">
                           <span class="icon text-white-50">
                           <i class="fas fa-check"></i>
                           </span>
-                          <span class="text">Tangapi</span>
+                          <span class="text">Detail & verifikasi</span>
                         </a>
 
-                        
+                      
 
 
 
@@ -98,7 +92,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Rani Susanti</span>
+            
           </div>
         </div>
       </footer>

@@ -26,9 +26,10 @@
   <div class="card-header">
     Detail Pengaduan
   </div>
-        <?php
+
+   <?php
       include '../koneksi.php';
-      $sql=$mysqli -> query ("select * from pengaduan where id_pengaduan='$_GET[id]'");
+      $sql=$mysqli -> query ("select * from pengaduan where id_Pengaduan='$_GET[id]'");
       $data=mysqli_fetch_array($sql);
       if ($sql) 
       {
@@ -43,12 +44,19 @@
     <span class="text">Kembali</span>
   </a>
 
-    
+
+
+  <a href="proses.php?id=<?php echo $data['id_Pengaduan']; ?>" class="btn btn-warning btn-icon-split" onclick="return confirm('yakin akan diproses?')">
+    <span class="icon text-white-50">
+      <i class="fas fa-check"></i>
+    </span>
+    <span class="text">Proses Verifikasi</span>
+  </a>
 </div>
   
     <form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
 
-
+     
       <div class="form-group cols-sm-6">
         <label>Tanggal Pengaduan</label>
         <input type="text" name="tgl_pengaduan" value="<?php echo $data['tgl_pengaduan']; ?>" class="form-control" readonly>
